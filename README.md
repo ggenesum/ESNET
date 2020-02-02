@@ -1,2 +1,5 @@
 # ESNET
-Social Network for Epita
+Projet Epita S4
+
+Social Network 
+
