@@ -7,7 +7,6 @@
 
 int main()
 {
-
     char *len_ = getenv("CONTENT_LENGTH");
     long len = strtol(len_, NULL, 10);
     char *post = malloc(len + 1);
