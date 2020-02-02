@@ -30,7 +30,11 @@ int main()
 
    if (strcmp(args[1],"test") == 0) //raw password value is test
    {
-     if (add_login_cookie("test_uid")==0)
+     struct login_cookie lc; //craft cookie
+     lc.auth_token = "test_uid";
+     lc.username = args[0];
+
+     if (add_login_cookies(lc)==0) //add, and if success
      {
        printf("Content-Type: text/html;\n\n");
        load_ztemplate("templates/login.zhtml", vars);

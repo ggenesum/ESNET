@@ -6,16 +6,17 @@
 struct login_cookie
 {
     char *auth_token;
+    char *username;
 };
 
-int add_login_cookie(char *auth_token)
+int add_login_cookies(struct login_cookie lc)
   {
-    struct login_cookie lc;
-    if (auth_token == NULL)
+    if (lc.auth_token == NULL)
     {
       return 1; //no cookie :(
     }
-    lc.auth_token = auth_token;
     printf("Set-Cookie: auth_token=%s\n",lc.auth_token);
+    printf("Set-Cookie: username=%s\n",lc.username);
+
     return 0;
   }
