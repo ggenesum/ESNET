@@ -5,4 +5,5 @@ Social Network
 
 C server using CGI.
 Cross platform win/linux.
+c99
 
