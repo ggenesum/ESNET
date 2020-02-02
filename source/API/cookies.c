@@ -9,6 +9,21 @@ struct login_cookie
     char *username;
 };
 
+void cookieparse(char *str, char **var, int argc) //parse cookie string to array
+{
+  char *token = strtok(str, "=");
+  for (int i = 0; i < argc; i++)
+	{
+    token = strtok(NULL, ";");
+    if (token == NULL)
+    {
+      break;
+    }
+    var[i] = token;
+    token = strtok(NULL, "=");
+	}
+}
+
 int add_login_cookies(struct login_cookie lc)
   {
     if (lc.auth_token == NULL)
