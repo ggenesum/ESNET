@@ -1,8 +1,0 @@
-<p> Hello ||. </p>
-
-<form action="/test_cookie.exe" method="get">
-    <input type="submit" value="Test cookies"
-         name="Submit" id="testcookie" />
-</form>
-
-</html>
