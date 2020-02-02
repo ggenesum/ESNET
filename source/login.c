@@ -21,12 +21,12 @@ int main()
    int varc = 1; //number of "||" markers in zhtml page
 
    fgets(post, len + 1, stdin);
-   
+
    char **args = (char**)malloc(argc*sizeof(char*)); //post request parsed values
    char **vars = (char**)malloc(varc*sizeof(char*)); //dynamicly generated content (vars that are embeeded in html page)
 
    argparse(post,args,argc);
-   vars[0] = args[1]; //username
+   vars[0] = args[0]; //username
 
    if (strcmp(args[1],"test") == 0) //raw password value is test
    {
