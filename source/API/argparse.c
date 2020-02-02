@@ -18,15 +18,3 @@ void argparse(char *str, char **var, int argc) //string username=foo&pass=bar in
     token = strtok(NULL, "=");
 	}
 }
-
-int main()
-{
-  int argc = 3;
-  char **var = (char**)malloc(argc*sizeof(char*));
-  char str[] = "username=jean&pass=louis";
-  argparse(str,var,argc);
-  printf("%s\n",var[0]);
-  printf("%s\n",var[1]);
-  free(var);
-  return 0;
-}
