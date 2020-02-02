@@ -1,7 +1,5 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 #include "API/html_layout.h"
+#include <stdio.h>
 
 int main(void)
 {
@@ -10,4 +8,5 @@ int main(void)
 
     printf("Esnet\n\n");
     load_template("templates/index.html");
+    return 0;
 }

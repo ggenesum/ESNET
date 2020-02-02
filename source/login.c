@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "API/html_layout.h"
 
-void main()
+int main()
 {
   printf("Set-Cookie: cookie=miam\n");
   printf("Content-Type: text/html;\n\n");
@@ -15,10 +15,26 @@ void main()
   if (!post)
   {
     printf("couldnt allocate memory");
-    return;
+    return 1;
  }
 
-fgets(post, len + 1, stdin);
-printf("%s", post);
-free(post);
+ fgets(post, len + 1, stdin);
+
+
+ printf("%s", post);
+
+ free(post);
+
+
+
+
+
+int argc = 2;
+char **var = (char**)malloc(argc*sizeof(char*));
+var[0] = "jean";
+var[1] = "louis";
+
+load_ztemplate("templates/login.zhtml", var);
+free(var);
+return 0;
 }
