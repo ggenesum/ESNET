@@ -1,10 +1,10 @@
-all: loginpage.exe login.exe test_cookie.exe
+all: loginpage login test_cookie
 
-loginpage.exe: loginpage.c API/html_layout.c
-	c:/gcc/bin/gcc.exe loginpage.c API/html_layout.c -o loginpage.exe -std=c99 -Wall
+loginpage: loginpage.c API/html_layout.c
+	gcc loginpage.c API/html_layout.c -o loginpage -std=c99 -Wall
 
-login.exe: 	login.c API/html_layout.c API/argparse.c API/cookies.c
-	c:/gcc/bin/gcc.exe login.c API/html_layout.c API/argparse.c API/cookies.c -o login.exe -std=c99 -Wall
+login: 	login.c API/html_layout.c API/argparse.c API/cookies.c
+	gcc login.c API/html_layout.c API/argparse.c API/cookies.c -o login -std=c99 -Wall
 
-test_cookie.exe: test_cookie.c API/cookies.c API/html_layout.c
-	c:/gcc/bin/gcc.exe test_cookie.c API/cookies.c API/html_layout.c -o test_cookie.exe -std=c99 -Wall
+test_cookie: test_cookie.c API/cookies.c API/html_layout.c
+	gcc test_cookie.c API/cookies.c API/html_layout.c -o test_cookie -std=c99 -Wall
