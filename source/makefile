@@ -1,7 +1,7 @@
-all: index.exe login.exe test_cookie.exe
+all: loginpage.exe login.exe test_cookie.exe
 
-index.exe: index.c API/html_layout.c
-	c:/gcc/bin/gcc.exe index.c API/html_layout.c -o index.exe -std=c99 -Wall
+loginpage.exe: loginpage.c API/html_layout.c
+	c:/gcc/bin/gcc.exe loginpage.c API/html_layout.c -o loginpage.exe -std=c99 -Wall
 
 login.exe: 	login.c API/html_layout.c API/argparse.c API/cookies.c
 	c:/gcc/bin/gcc.exe login.c API/html_layout.c API/argparse.c API/cookies.c -o login.exe -std=c99 -Wall
