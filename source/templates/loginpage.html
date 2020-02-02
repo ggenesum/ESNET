@@ -11,25 +11,26 @@
 			<img class="bancolor" src="../blue.jpg">
 		</div>
 		<div class="login-box">
-			<h1>Log in</h1>
-			<div class="textbox">
-				<i class="fas fa-user-graduate" aria-hidden="true"></i>
-				<input type="text" placeholder="Username">
-			</div>
-			<div class="textbox">
-				<i class="fas fa-lock"></i>
-				<input type="Password" placeholder="Password">
-			</div>
+				<form action="/login.exe" method="post">
+					<h1>Log in</h1>
+					<div class="textbox">
+						<i class="fas fa-user-graduate" aria-hidden="true"></i>
+						<input type="text" placeholder="Username" name="username">
+					</div>
+					<div class="textbox">
+						<i class="fas fa-lock"></i>
+						<input type="Password" placeholder="Password" name="pass">
+					</div>
 
-			<input class="bsi" type="button" value="Sign in">
-			<div id="or">
-				<p>or</p>
-			</div>
-			<input class="brg" type="button" value="Register">
-			<br><br>
-			<a href="#">Password or Username forgotten?</a>
-
-		</div>
+					<input class="bsi" type="submit" value="Sign in">
+					<div id="or">
+						<p>or</p>
+					</div>
+					<input class="brg" type="submit" value="Register">
+					<br><br>
+					<a href="#">Password or Username forgotten?</a>
+					</form>
+				</div>
 
 		<!--<div id="banner2">
 		</div>-->
