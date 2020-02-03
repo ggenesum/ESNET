@@ -28,6 +28,8 @@ int main()
    if (argparse(post,args,argc) != 0)
    {
      printf("please enter user and password");
+     free(len_);
+     free(post);
      free(vars);
      free(args);
      return 1;
@@ -44,6 +46,8 @@ int main()
      {
        printf("Content-Type: text/html;\n\n");
        load_ztemplate("../templates/login.zhtml", vars);
+       free(len_);
+       free(post);
        free(vars);
        free(args);
        return 0;
@@ -52,7 +56,8 @@ int main()
    printf("Content-Type: text/html;\n\n");
    printf("<p> invalid password </p>");
 
-
+  free(len_);
+  free(post);
   free(vars);
   free(args);
   return 1;
