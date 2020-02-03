@@ -4,9 +4,13 @@
 
 
 
-void argparse(char *str, char **var, int argc) //string username=foo&pass=bar into array ["foo","bar"]
+int argparse(char *str, char **var, int argc) //string username=foo&pass=bar into array ["foo","bar"]
 {
   char *token = strtok(str, "=");
+  if (token == NULL)
+  {
+    return 1;
+  }
   for (int i = 0; i < argc; i++)
 	{
     token = strtok(NULL, "&");
@@ -17,4 +21,5 @@ void argparse(char *str, char **var, int argc) //string username=foo&pass=bar in
     var[i] = token;
     token = strtok(NULL, "=");
 	}
+  return 0;
 }
