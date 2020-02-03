@@ -25,7 +25,11 @@ int main()
    char **args = (char**)malloc(argc*sizeof(char*)); //post request parsed values
    char **vars = (char**)malloc(varc*sizeof(char*)); //dynamicly generated content (vars that are embeeded in html page)
 
-   argparse(post,args,argc);
+   if (argparse(post,args,argc) != 0)
+   {
+     printf("please enter user and password");
+     return 1;
+   }
    vars[0] = args[0]; //username
 
    if (strcmp(args[1],"test") == 0) //raw password value is test
