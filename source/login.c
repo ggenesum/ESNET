@@ -37,7 +37,6 @@ int main()
      if (add_login_cookies(lc)==0) //add, and if success
      {
        printf("Content-Type: text/html;\n\n");
-       load_template("../headers/styles.html");
        load_ztemplate("../templates/login.zhtml", vars);
        free(vars);
        free(args);
@@ -45,7 +44,6 @@ int main()
      }
    }
    printf("Content-Type: text/html;\n\n");
-   load_template("headers/styles.html");
    printf("<p> invalid password </p>");
 
 
