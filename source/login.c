@@ -28,6 +28,8 @@ int main()
    if (argparse(post,args,argc) != 0)
    {
      printf("please enter user and password");
+     free(vars);
+     free(args);
      return 1;
    }
    vars[0] = args[0]; //username
