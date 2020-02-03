@@ -1,4 +1,4 @@
-all: loginpage login test_cookie
+all: loginpage login test_cookie registerpage
 
 loginpage: loginpage.c API/html_layout.c
 	gcc loginpage.c API/html_layout.c -o cgi/loginpage.cgi -std=c99 -Wall
@@ -8,3 +8,6 @@ login: 	login.c API/html_layout.c API/argparse.c API/cookies.c
 
 test_cookie: test_cookie.c API/cookies.c API/html_layout.c
 	gcc test_cookie.c API/cookies.c API/html_layout.c -o cgi/test_cookie.cgi -std=c99 -Wall
+
+registerpage: registerpage.c API/html_layout.c
+	gcc registerpage.c API/html_layout.c -o cgi/registerpage.cgi -std=c99 -Wall
