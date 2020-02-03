@@ -1,0 +1,111 @@
+body {
+	overflow-x: hidden;
+	margin: 0;
+}
+
+/*menu*/
+#site {
+	width: 800px;
+	margin: auto;
+	background-color: yellow;
+}
+
+#banner1 {
+	display: block;
+	text-align: center;
+	position: relative;
+	background-color: #6391c7;
+	height: 50px;
+}
+
+.bancolor {
+	height: 50px;
+	width: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	z-index: 10;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+}
+
+#banner1 p {
+	position: relative;
+	font-weight: bold;
+	font-size: 30px;
+	color: #0d1d31;
+	top: 7px;
+	margin: 0;
+	z-index: 20;
+}
+
+#menu {
+	min-width: 700px;
+	height: 100px;
+	width: 100%;
+	position: relative;
+	background-color: #2c54a0;
+}
+
+#menu ul {
+	float: left;
+	left: 50%; /*??*/
+	position: relative;
+	padding-top: 15px;
+	margin-left: -70px;
+}
+
+#menu ul li {
+	margin-left: 20px;
+	float: left;
+	list-style-type: none;
+	position: relative;
+	left: -50%;
+}
+
+#menu ul li a {
+	text-align: center;
+	padding-top: 10px;
+	display: inline-block;
+	background-color: #228642;
+	height: 30px;
+	width: 100px;
+	color: black;
+	text-decoration: none;
+}
+
+#menu ul li a:hover {
+	color: white;
+	background-color: black;
+}
+
+#banner2 {
+	display: block;
+	background-color: #4fa1e9;
+	height: 50px;
+	width: 100%;
+}
+
+#contenuprincipal {
+	display: block;
+	width: 90%;
+	margin: auto;
+}
+
+#footer {
+	text-align: center;
+	display: block;
+	background-color: #6391c7;
+	height: 43px;
+	/*margin-top: 76%;*/
+	width: 100%;
+	position: fixed;
+	bottom: 0px;
+}
+
+#footer p {
+	color: black;
+	font-weight: bolder;
+	position: relative;
+	top: -3px;
+}
