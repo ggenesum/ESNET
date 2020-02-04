@@ -7,6 +7,7 @@ struct login_cookie
 {
     char *auth_token;
     char *username;
+    char *email;
 };
 
 void cookieparse(char *str, char **var, int argc) //parse cookie string to array

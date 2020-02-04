@@ -1,0 +1,10 @@
+<p> Hello ||. </p>
+
+<p> This is your e-mail adress: ||</p>
+
+<form action="/cgi/test_cookie.cgi" method="get">
+    <input type="submit" value="Test cookies"
+         name="Submit" id="testcookie" />
+</form>
+
+</html>
