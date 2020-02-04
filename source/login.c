@@ -8,12 +8,25 @@
 int main()
 {
     char *len_ = getenv("CONTENT_LENGTH");
+    if (len_ == NULL)
+    {
+      //free pointers, handle correctly
+      printf("Location: /cgi/error.cgi\n\n");
+      return 1;
+    }
     long len = strtol(len_, NULL, 10);
+
+    if (len == 0)
+    {
+      printf("Location: /cgi/error.cgi\n\n");
+      return 1;
+    }
+
     char *post = malloc(len + 1);
 
     if (!post)
     {
-      printf("couldnt allocate memory");
+      printf("Location: /cgi/error.cgi\n\n");
       return 1;
    }
 
@@ -27,11 +40,7 @@ int main()
 
    if (argparse(post,args,argc) != 0)
    {
-     printf("please enter user and password");
-     free(len_);
-     free(post);
-     free(vars);
-     free(args);
+     printf("Location: /cgi/error.cgi\n\n");
      return 1;
    }
    vars[0] = args[0]; //username
@@ -46,8 +55,6 @@ int main()
      {
        printf("Content-Type: text/html;\n\n");
        load_ztemplate("../templates/login.zhtml", vars);
-       free(len_);
-       free(post);
        free(vars);
        free(args);
        return 0;
@@ -56,8 +63,7 @@ int main()
    printf("Content-Type: text/html;\n\n");
    printf("<p> invalid password </p>");
 
-  free(len_);
-  free(post);
+
   free(vars);
   free(args);
   return 1;
