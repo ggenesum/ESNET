@@ -5,8 +5,6 @@
 struct login_cookie
 {
     char *auth_token;
-    char *username;
-    char *email;
 };
 
 sqlite3* init_sqldb(){
