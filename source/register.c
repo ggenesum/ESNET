@@ -1,4 +1,9 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "API/html_layout.h"
+#include "API/argparse.h"
+#include "API/cookies.h"
 
 int main(void)
 {
