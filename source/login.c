@@ -7,19 +7,18 @@
 
 int main()
 {
-    printf("Location: /cgi/error.cgi");
     char *len_ = getenv("CONTENT_LENGTH");
     if (len_ == NULL)
     {
       //free pointers, handle correctly
-      printf("Location: /cgi/error.cgi");
+      printf("Location: /cgi/error.cgi\n\n");
       return 1;
     }
     long len = strtol(len_, NULL, 10);
 
     if (len == 0)
     {
-      printf("Location: /cgi/error.cgi");
+      printf("Location: /cgi/error.cgi\n\n");
       return 1;
     }
 
