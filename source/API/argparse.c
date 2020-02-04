@@ -5,7 +5,11 @@
 
 
 int argparse(char *str, char **var, int argc) //string username=foo&pass=bar into array ["foo","bar"]
+//if there
+//if they are more values in post than argc, return only the argc first values
+//if less, return error code
 {
+  int c = 0;
   char *token = strtok(str, "=");
   if (token == NULL)
   {
@@ -19,7 +23,13 @@ int argparse(char *str, char **var, int argc) //string username=foo&pass=bar int
       break;
     }
     var[i] = token;
+    c++;
     token = strtok(NULL, "=");
 	}
+
+  if (c < argc)
+  {
+    return 1;
+  }
   return 0;
 }
