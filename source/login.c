@@ -11,12 +11,14 @@ int main()
     if (len_ == NULL)
     {
       //free pointers, handle correctly
+      printf("Location: /cgi/error.cgi");
       return 1;
     }
     long len = strtol(len_, NULL, 10);
 
     if (len == 0)
     {
+      printf("Location: /cgi/error.cgi");
       return 1;
     }
 
