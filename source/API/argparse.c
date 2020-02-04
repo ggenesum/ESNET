@@ -15,13 +15,17 @@ int argparse(char *str, char **var, int argc) //string username=foo&pass=bar int
   {
     return 1;
   }
-  
+
   for (int i = 0; i < argc; i++)
 	{
     token = strtok(NULL, "&");
     if (token == NULL)
     {
       break;
+    }
+    if (strlen(token) == 0)
+    {
+      return 1;
     }
     var[i] = token;
     c++;
