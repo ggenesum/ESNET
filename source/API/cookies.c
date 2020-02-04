@@ -32,8 +32,10 @@ int add_login_cookies(struct login_cookie lc)
       return 1; //no cookie :(
     }
     printf("Set-Cookie: auth_token=%s\n",lc.auth_token);
+    if (lc.username != NULL)
     printf("Set-Cookie: username=%s\n",lc.username);
-    printf("set-cookie: email=%s\n",lc.email);
+    if (lc.email != NULL)
+      printf("Set-cookie: email=%s\n",lc.email);
 
     return 0;
   }
