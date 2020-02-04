@@ -15,6 +15,7 @@ int argparse(char *str, char **var, int argc) //string username=foo&pass=bar int
   {
     return 1;
   }
+  
   for (int i = 0; i < argc; i++)
 	{
     token = strtok(NULL, "&");

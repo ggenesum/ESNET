@@ -27,6 +27,7 @@ int main()
     if (!post)
     {
       return 1;
+      printf("Location: /cgi/error.cgi\n\n");
    }
 
    int argc = 2;
@@ -40,6 +41,7 @@ int main()
    if (argparse(post,args,argc) != 0)
    {
      return 1;
+      printf("Location: /cgi/error.cgi\n\n");
    }
    vars[0] = args[0]; //username
 
