@@ -7,6 +7,7 @@
 
 int main()
 {
+    printf("Location: /cgi/error.cgi");
     char *len_ = getenv("CONTENT_LENGTH");
     if (len_ == NULL)
     {
