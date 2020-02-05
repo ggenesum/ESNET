@@ -49,10 +49,10 @@ int main()
    lc.auth_token = NULL;
    sqlite3* db = init_sqldb();
 
-   if (Auhtenticate(args[0], args[1],lc,db) != -1) //raw password value is test
+   if (Auhtenticate(args[0],args[1],lc,db) != -1)
    {
-     lc.auth_token = "test_uid";
-     if (add_login_cookies(lc)==0) //add, and if success
+     lc.auth_token = "test_token";
+     if (add_login_cookies(lc)==0) //add cookie, and if success
      {
        printf("Content-Type: text/html;\n\n");
        load_ztemplate("../templates/login.zhtml", vars);
@@ -62,7 +62,7 @@ int main()
      }
    }
    printf("Content-Type: text/html;\n\n");
-   printf("<p> invalid password </p>");
+   printf("<p> Cannot log in </p>");
 
 
   free(vars);
