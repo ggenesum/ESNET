@@ -49,7 +49,7 @@ int main()
    lc.auth_token = NULL;
    sqlite3* db = init_sqldb();
 
-   if (Auhtenticate(args[0], args[0],lc,db) != -1) //raw password value is test
+   if (Auhtenticate(args[0], args[1],lc,db) != -1) //raw password value is test
    {
      lc.auth_token = "test_uid";
      if (add_login_cookies(lc)==0) //add, and if success
