@@ -14,7 +14,7 @@ sqlite3* init_sqldb(){
     sqlite3 *db;
     //sqlite3_stmt *res;
 
-    int rc = sqlite3_open("../../DB/ESNetDB.db", &db);
+    int rc = sqlite3_open("../DB/ESNetDB.db", &db);
 
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Cannot open database: %s\n", sqlite3_errmsg(db));
