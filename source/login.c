@@ -4,6 +4,7 @@
 #include "API/html_layout.h"
 #include "API/argparse.h"
 #include "API/cookies.h"
+#include "API/database.h"
 
 int main()
 {
@@ -44,12 +45,13 @@ int main()
      return 1;
    }
    vars[0] = args[0]; //username
+   struct login_cookie lc; //craft cookie
+   lc.auth_token = NULL;
+   sqlite3* db = init_sqldb();
 
-   if (strcmp(args[1],"test") == 0) //raw password value is test
+   if (Auhtenticate(args[0], vars[0],lc,db) != -1) //raw password value is test
    {
-     struct login_cookie lc; //craft cookie
      lc.auth_token = "test_uid";
-
      if (add_login_cookies(lc)==0) //add, and if success
      {
        printf("Content-Type: text/html;\n\n");
