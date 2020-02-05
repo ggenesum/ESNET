@@ -5,6 +5,9 @@
 #include "API/argparse.h"
 #include "API/cookies.h"
 #include "API/database.h"
+#include "API/error.h"
+
+#define DEBUG 1 //display error messages
 
 int main()
 {
@@ -12,14 +15,14 @@ int main()
     if (len_ == NULL)
     {
       //free pointers, handle correctly
-      printf("Location: /cgi/error.cgi\n\n");
+      errpage("login/err1 : NULL ptr content_length",DEBUG);
       return 1;
     }
     long len = strtol(len_, NULL, 10);
 
     if (len == 0)
     {
-      printf("Location: /cgi/error.cgi\n\n");
+      errpage("login/err2 : post len is 0",DEBUG);
       return 1;
     }
 
@@ -27,7 +30,7 @@ int main()
 
     if (!post)
     {
-      printf("Location: /cgi/error.cgi\n\n");
+      errpage("login/err3 : post is NULL",DEBUG);
       return 1;
    }
 
@@ -41,7 +44,7 @@ int main()
 
    if (argparse(post,args,argc) != 0)
    {
-     printf("Location: /cgi/error.cgi\n\n");
+      errpage("login/err4 : argparse returns error code",DEBUG);
      return 1;
    }
    vars[0] = args[0]; //username
