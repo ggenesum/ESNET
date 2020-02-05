@@ -11,15 +11,13 @@ sqlite3* init_sqldb(){
     sqlite3 *db;
     //sqlite3_stmt *res;
 
-    int rc = sqlite3_open("../DB/ESNetDB.db", &db);
+    int rc = sqlite3_open("../../DB/ESNetDB.db", &db);
 
     if (rc != SQLITE_OK) {
         fprintf(stderr, "Cannot open database: %s\n", sqlite3_errmsg(db));
         sqlite3_close(db);
-
         return NULL;
     }
-
     return db;
 }
 
@@ -89,7 +87,6 @@ int Register(char* username, char* email, char* pass, sqlite3 *db){
             return sqlite3_last_insert_rowid(db);
     }
     return -1;
-
 }
 
 int Auhtenticate(char* username, char* pass, struct login_cookie login_cookie, sqlite3 *db){
