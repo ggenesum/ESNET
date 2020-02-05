@@ -13,6 +13,6 @@ int errpage(char *errormsg, int debug)
     vars[0] = "We're sorry, an error happened on our side.\n Please try again later, or contact us so we can work on this issue.";
 
   printf("Content-Type: text/html;\n\n");
-  load_ztemplate("subtemplates/error.zhtml",vars);
+  load_ztemplate("../subtemplates/error.zhtml",vars);
   return 0;
 }

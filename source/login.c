@@ -65,7 +65,7 @@ int main()
      }
    }
    printf("Content-Type: text/html;\n\n");
-   printf("<p> Cannot log in </p>");
+   printf("<p> Wrong credentials. Please try again </p>");
 
 
   free(vars);
