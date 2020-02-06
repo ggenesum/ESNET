@@ -42,7 +42,7 @@ int main(void)
 
   if (argparse(post,args,argc) != 0)
   {
-   printf("Please enter user and password");
+   printf("Please enter user, email and password");
    free(len_);
    free(content);
    free(post);
