@@ -10,12 +10,11 @@ int main()
   printf("Content-Type: text/html;\n\n");
   load_template("../headers/styles.html");
 
-  char **parsed_cookies = (char**)malloc(2*sizeof(char*)); //post request parsed values
+  char **parsed_cookies = (char**)malloc(1*sizeof(char*)); //post request parsed values
   char *cookies= getenv("HTTP_COOKIE");
 
-  cookieparse(cookies,parsed_cookies,2); //parse cookie string to array
+  cookieparse(cookies,parsed_cookies,1); //parse cookie string to array
   printf("<p> token found: %s </p>\n",parsed_cookies[0]);
-  printf("<p> You are %s\n </p>",parsed_cookies[1]);
 
   return 0;
 }

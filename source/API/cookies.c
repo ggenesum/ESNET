@@ -6,8 +6,6 @@
 struct login_cookie
 {
     char *auth_token;
-    char *username;
-    char *email;
 };
 
 void cookieparse(char *str, char **var, int argc) //parse cookie string to array
@@ -26,16 +24,11 @@ void cookieparse(char *str, char **var, int argc) //parse cookie string to array
 }
 
 int add_login_cookies(struct login_cookie lc)
+{
+  if (lc.auth_token == NULL)
   {
-    if (lc.auth_token == NULL)
-    {
-      return 1; //no cookie :(
-    }
-    printf("Set-Cookie: auth_token=%s\n",lc.auth_token);
-    if (lc.username != NULL)
-    printf("Set-Cookie: username=%s\n",lc.username);
-    if (lc.email != NULL)
-      printf("Set-cookie: email=%s\n",lc.email);
-
-    return 0;
+    return 1; //no cookie :(
   }
+  printf("Set-Cookie: auth_token=%s\n",lc.auth_token);
+  return 0;
+}

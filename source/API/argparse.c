@@ -2,10 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-
-
 int argparse(char *str, char **var, int argc) //string username=foo&pass=bar into array ["foo","bar"]
-//if there
 //if they are more values in post than argc, return only the argc first values
 //if less, return error code
 {

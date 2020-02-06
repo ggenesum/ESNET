@@ -55,8 +55,6 @@ int main(void)
   {
      struct login_cookie lc; //craft cookie
      lc.auth_token = "test_uid";
-     lc.username = args[0];
-     lc.email = args[1];
 
      if (add_login_cookies(lc)==0) //if success
      {
