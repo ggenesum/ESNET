@@ -5,34 +5,34 @@
 #include "API/argparse.h"
 #include "API/cookies.h"
 
+#define DEBUG 1 //display error messages
+
 int main(void)
 {
 	char *len_ = getenv("CONTENT_LENGTH");
   if (len_ == NULL)
   {
     //free pointers, handle correctly
-    printf("Location: /cgi/error.cgi\n\n");
+    errpage("regiser/err1 : NULL ptr content_length",DEBUG);
     return 1;
   }
 
   long len = strtol(len_, NULL, 10);
   if (len == 0)
   {
-    printf("Location: /cgi/error.cgi\n\n");
+    errpage("register/err2 : post len is 0",DEBUG);
     return 1;
   }
 
   char *post = malloc(len + 1);
   if (!post)
   {
-    printf("Location: /cgi/error.cgi\n\n");
+    errpage("register/err3 : post is NULL",DEBUG);
     return 1;
   }
 
   int argc = 4; // number of arguments we get
   int varc = 2; // number of "||" markers in zhtml page
-
-  fgets(post, len + 1, stdin);
 
   char *content = fgets(post, len + 1, stdin);
 
@@ -42,7 +42,7 @@ int main(void)
 
   if (argparse(post,args,argc) != 0)
   {
-   printf("Please enter user, email and password");
+   errpage("register/err4 : argparse returns error code",DEBUG);
    free(len_);
    free(content);
    free(post);
@@ -54,9 +54,10 @@ int main(void)
   if (strcmp(args[2], args[3]) == 0) //compare 2 entered passwords
   {
      struct login_cookie lc; //craft cookie
-     lc.auth_token = "test_uid";
+     lc.auth_token = NULL;
+     sqlite3* db = init_sqldb();
 
-     if (add_login_cookies(lc)==0) //if success
+     if (Register(args[0], args[1], args[2], db) != -1)
      {
        printf("Content-Type: text/html;\n\n");
        load_ztemplate("../templates/register.zhtml", vars);
