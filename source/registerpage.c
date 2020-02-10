@@ -4,9 +4,9 @@
 int main(void)
 {
     printf("Content-Type: text/html;\n\n");
-    load_template("../extremities/header.html");
+    load_template("../subtemplates/header.html");
     load_template("../templates/registerpage.html");
-    load_template("../extremities/footer.html");
+    load_template("../subtemplates/footer.html");
     
     return 0;
 }
