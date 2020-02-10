@@ -7,6 +7,6 @@ int main(void)
     load_template("../subtemplates/header.html");
     load_template("../templates/registerpage.html");
     load_template("../subtemplates/footer.html");
-    
+
     return 0;
 }

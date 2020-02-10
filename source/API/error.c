@@ -6,7 +6,6 @@ int errpage(char *errormsg, int debug)
 {
   char **vars = (char**)malloc(sizeof(char*)); //dynamicly generated content (vars that are embeeded in html page)
   //load_template("/headers/styles.html");
-  //add debug/prod error modes
   if (debug && errormsg != NULL)
     vars[0] = errormsg;
   else
