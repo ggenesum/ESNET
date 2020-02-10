@@ -48,6 +48,8 @@ int main()
      return 1;
    }
    vars[0] = args[0]; //username
+   errpage(args[0],DEBUG);
+   errpage(args[1],DEBUG);
    struct login_cookie lc; //craft cookie
    lc.auth_token = NULL;
    sqlite3* db = NULL;
@@ -57,8 +59,7 @@ int main()
      return 1;
    }
    //else if (Authenticate(args[0],args[1],lc,db) != -1)
-   errpage(args[0],DEBUG);
-   errpage(args[1],DEBUG);
+
    else if (strcmp(args[0],args[1]) == 0)
    {
      lc.auth_token = "test_token";
