@@ -5,6 +5,7 @@
 #include "API/argparse.h"
 #include "API/cookies.h"
 #include "API/database.h"
+#include "API/error.h"
 
 #define DEBUG 1 //display error messages
 

@@ -12,5 +12,5 @@ test_cookie: test_cookie.c API/cookies.c API/html_layout.c
 registerpage: registerpage.c API/html_layout.c
 	gcc registerpage.c API/html_layout.c -o cgi/registerpage.cgi -std=c99 -Wall
 
-register: register.c API/html_layout.c API/argparse.c API/cookies.c API/database.c sqlite3/sqlite3.c
-	gcc register.c API/html_layout.c API/argparse.c API/cookies.c API/database.c sqlite3/sqlite3.c -o cgi/register.cgi -std=c99 -Wall -lpthread -ldl
+register: register.c API/html_layout.c API/argparse.c API/cookies.c API/database.c sqlite3/sqlite3.c API/error.c
+	gcc register.c API/html_layout.c API/argparse.c API/cookies.c API/database.c API/error.c sqlite3/sqlite3.c -o cgi/register.cgi -std=c99 -Wall -lpthread -ldl
