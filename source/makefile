@@ -1,4 +1,4 @@
-all: loginpage login test_cookie registerpage register
+all: loginpage login test_cookie registerpage register mdppage
 
 loginpage: loginpage.c API/html_layout.c
 	gcc loginpage.c API/html_layout.c -o cgi/loginpage.cgi -std=c99 -Wall
@@ -14,3 +14,6 @@ registerpage: registerpage.c API/html_layout.c
 
 register: register.c API/html_layout.c API/argparse.c API/cookies.c API/database.c sqlite3/sqlite3.c API/error.c
 	gcc register.c API/html_layout.c API/argparse.c API/cookies.c API/database.c API/error.c sqlite3/sqlite3.c -o cgi/register.cgi -std=c99 -Wall -lpthread -ldl
+
+mdppage: mdppage.c API/html_layout.c
+	gcc mdppage.c API/html_layout.c -o cgi/mdppage.cgi -std=c99 -Wall
