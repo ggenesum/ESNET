@@ -21,7 +21,6 @@ int init_sqldb(sqlite3 *db){
         sqlite3_close(db);
         return -1;
     }
-    errpage("Db inti ok",DEBUG);
     return 0;
 }
 
