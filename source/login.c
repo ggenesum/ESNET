@@ -48,8 +48,6 @@ int main()
      return 1;
    }
    vars[0] = args[0]; //username
-   errpage(args[0],DEBUG);
-   errpage(args[1],DEBUG);
    struct login_cookie lc; //craft cookie
    lc.auth_token = NULL;
    sqlite3* db = NULL;
