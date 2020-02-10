@@ -56,7 +56,7 @@ int main()
      errpage("login/err5 : Cannot init DB",DEBUG);
      return 1;
    }
-   else if (Auhtenticate(args[0],args[1],lc,db) != -1)
+   else if (Authenticate(args[0],args[1],lc,db) != -1)
    {
      lc.auth_token = "test_token";
      if (add_login_cookies(lc)==0) //add cookie, and if success
