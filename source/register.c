@@ -55,22 +55,23 @@ int main(void)
 
   if (strcmp(args[2], args[3]) == 0) //compare 2 entered passwords
   {
-    // struct login_cookie lc; //craft cookie
-    // lc.auth_token = NULL;
-     sqlite3* db = init_sqldb();
-     if (Register(args[0], args[1], args[2], db) != -1)
-     {
-       printf("Content-Type: text/html;\n\n");
-       load_ztemplate("../templates/register.zhtml", vars);
-       free(len_);
-       free(content);
-       free(post);
-       free(vars);
-       free(args);
-       close_sqldb(db);
-       return 0;
-     }
-     close_sqldb(db);
+	// struct login_cookie lc; //craft cookie
+	// lc.auth_token = NULL;
+	sqlite3* db = NULL;
+	init_sqldb(db);
+	   if (Register(args[0], args[1], args[2], db) != -1)
+	   {
+	     printf("Content-Type: text/html;\n\n");
+	     load_ztemplate("../templates/register.zhtml", vars);
+	     free(len_);
+	     free(content);
+	     free(post);
+	     free(vars);
+	     free(args);
+	     close_sqldb(db);
+	     return 0;
+	   }
+	   close_sqldb(db);
   }
   else
   {
