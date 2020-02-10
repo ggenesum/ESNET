@@ -66,8 +66,11 @@ int main()
        return 0;
      }
    }
-   printf("Content-Type: text/html;\n\n");
-   printf("<p> Wrong credentials. Please try again </p>");
+   else
+   {
+     printf("Content-Type: text/html;\n\n");
+     printf("<p> Wrong credentials. Please try again </p>");
+   }
    close_sqldb(db);
 
 
