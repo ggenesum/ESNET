@@ -95,12 +95,13 @@ int Register(char* username, char* email, char* pass, sqlite3 *db){
 int Auhtenticate(char* username, char* pass, struct login_cookie login_cookie, sqlite3 *db){
     sqlite3_stmt *res;
     if(login_cookie.auth_token != NULL){
-        char *sql = "SELECT UserId FROM Token WHERE C1 = ?1 OR C2 = ?1";
+        char *sql = "SELECT UserId FROM Token WHERE C1 = ?1 OR C2 = ?2";
 
         int rc = sqlite3_prepare_v2(db, sql, -1, &res, 0);
 
         if (rc == SQLITE_OK){
             sqlite3_bind_text(res, 1, login_cookie.auth_token, -1, NULL);
+            sqlite3_bind_text(res, 2, login_cookie.auth_token, -1, NULL);
         }
         else
             errpage((char *)sqlite3_errmsg(db),DEBUG);
@@ -122,15 +123,13 @@ int Auhtenticate(char* username, char* pass, struct login_cookie login_cookie, s
         if (rc == SQLITE_OK){
             sqlite3_bind_text(res, 1, username, -1, NULL);
             sqlite3_bind_text(res, 2, HPass, -1, NULL);
-        }
-        else
-          errpage((char *)sqlite3_errmsg(db),DEBUG);
 
-        int step = sqlite3_step(res);
+            int step = sqlite3_step(res);
 
-        if (step == SQLITE_ROW){
-            sqlite3_finalize(res);
-            return sqlite3_column_int(res, 0);
+            if (step == SQLITE_ROW){
+                sqlite3_finalize(res);
+                return sqlite3_column_int(res, 0);
+            }
         }
     }
 
