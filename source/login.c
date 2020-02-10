@@ -50,11 +50,11 @@ int main()
    vars[0] = args[0]; //username
    struct login_cookie lc; //craft cookie
    lc.auth_token = NULL;
-   sqlite3* db = init_sqldb();
+   sqlite3* db = NULL;
+   init_sqldb(db);
 
    if (Auhtenticate(args[0],args[1],lc,db) != -1)
    {
-     errpage("authenticate ok",DEBUG);
      lc.auth_token = "test_token";
      if (add_login_cookies(lc)==0) //add cookie, and if success
      {

@@ -2,7 +2,7 @@
 #define DB
 
 #include "../sqlite3/sqlite3.h"
-sqlite3* init_sqldb();
+sqlite3* init_sqldb(sqlite3* db);
 void close_sqldb(sqlite3* db);
 
 
