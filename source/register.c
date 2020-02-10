@@ -58,7 +58,7 @@ int main(void)
     // struct login_cookie lc; //craft cookie
     // lc.auth_token = NULL;
      sqlite3* db = init_sqldb();
-
+     printf(__Username_exists(args[0],db));
      if (Register(args[0], args[1], args[2], db) != -1)
      {
        printf("Content-Type: text/html;\n\n");
@@ -68,11 +68,16 @@ int main(void)
        free(post);
        free(vars);
        free(args);
+       close_sqldb(db);
        return 0;
      }
+     close_sqldb(db);
   }
-  printf("Content-Type: text/html;\n\n");
-  printf("<p> The passwords don't match </p>");
+  else
+  {
+    printf("Content-Type: text/html;\n\n");
+    printf("<p> The passwords don't match </p>");
+  }
 
 	return 1;
 }
