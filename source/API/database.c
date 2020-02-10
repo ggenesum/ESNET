@@ -20,6 +20,7 @@ sqlite3* init_sqldb(){
         errpage("Cannot open database",DEBUG);
         sqlite3_close(db);
         return NULL;
+    errpage("Db inti ok",DEBUG);
     }
     return db;
 }
