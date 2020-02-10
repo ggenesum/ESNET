@@ -57,6 +57,8 @@ int main()
      return 1;
    }
    //else if (Authenticate(args[0],args[1],lc,db) != -1)
+   errpage(args[0],DEBUG);
+   errpage(args[1],DEBUG);
    else if (strcmp(args[0],args[1]) == 0)
    {
      lc.auth_token = "test_token";
