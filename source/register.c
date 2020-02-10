@@ -4,6 +4,7 @@
 #include "API/html_layout.h"
 #include "API/argparse.h"
 #include "API/cookies.h"
+#include "API/database.h"
 
 #define DEBUG 1 //display error messages
 
@@ -53,8 +54,8 @@ int main(void)
 
   if (strcmp(args[2], args[3]) == 0) //compare 2 entered passwords
   {
-     struct login_cookie lc; //craft cookie
-     lc.auth_token = NULL;
+    // struct login_cookie lc; //craft cookie
+    // lc.auth_token = NULL;
      sqlite3* db = init_sqldb();
 
      if (Register(args[0], args[1], args[2], db) != -1)
