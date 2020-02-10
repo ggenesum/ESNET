@@ -61,11 +61,13 @@ int main()
        load_ztemplate("../templates/login.zhtml", vars);
        free(vars);
        free(args);
+       close_sqldb(db);
        return 0;
      }
    }
    printf("Content-Type: text/html;\n\n");
    printf("<p> Wrong credentials. Please try again </p>");
+   close_sqldb(db);
 
 
   free(vars);
