@@ -53,7 +53,7 @@ int main()
    sqlite3* db = NULL;
    init_sqldb(db);
 
-   if (Auhtenticate(args[0],args[1],lc,db) != -1)
+   if (Authenticate(args[0],args[1],lc,db) != -1)
    {
      lc.auth_token = "test_token";
      if (add_login_cookies(lc)==0) //add cookie, and if success
