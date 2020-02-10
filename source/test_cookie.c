@@ -8,9 +8,9 @@
 int main()
 {
   printf("Content-Type: text/html;\n\n");
-  load_template("../headers/styles.html");
+  load_template("../subtemplates/styles.html");
 
-  char **parsed_cookies = (char**)malloc(1*sizeof(char*)); //post request parsed values
+  char **parsed_cookies = (char**)malloc(sizeof(char*)); //post request parsed values
   char *cookies= getenv("HTTP_COOKIE");
 
   cookieparse(cookies,parsed_cookies,1); //parse cookie string to array

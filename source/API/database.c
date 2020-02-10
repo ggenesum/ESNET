@@ -105,6 +105,7 @@ int Authenticate(char* username, char* pass, struct login_cookie login_cookie, s
 
         int step = sqlite3_step(res);
 
+        errpage((char)step,DEBUG);
         if (step == SQLITE_ROW) {
             sqlite3_finalize(res);
             return sqlite3_column_int(res, 0);
