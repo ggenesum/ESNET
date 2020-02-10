@@ -51,9 +51,12 @@ int main()
    struct login_cookie lc; //craft cookie
    lc.auth_token = NULL;
    sqlite3* db = NULL;
-   init_sqldb(db);
-
-   if (Authenticate(args[0],args[1],lc,db) != -1)
+   if (init_sqldb(db) == -1)
+   {
+     errpage("login/err5 : Cannot init DB",DEBUG);
+     return 1;
+   }
+   else if (Auhtenticate(args[0],args[1],lc,db) != -1)
    {
      lc.auth_token = "test_token";
      if (add_login_cookies(lc)==0) //add cookie, and if success

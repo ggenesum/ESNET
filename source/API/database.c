@@ -10,7 +10,7 @@ struct login_cookie
     char *auth_token;
 };
 
-void init_sqldb(sqlite3 *db){
+int init_sqldb(sqlite3 *db){
 
     //sqlite3_stmt *res;
 
@@ -19,9 +19,10 @@ void init_sqldb(sqlite3 *db){
     if (rc != SQLITE_OK) {
         errpage("Cannot open database",DEBUG);
         sqlite3_close(db);
-        return NULL;
+        return -1;
     }
     errpage("Db inti ok",DEBUG);
+    return 0;
 }
 
 void close_sqldb(sqlite3* db){
