@@ -92,7 +92,7 @@ int Register(char* username, char* email, char* pass, sqlite3 *db){
     return -1;
 }
 
-int Auhtenticate(char* username, char* pass, struct login_cookie login_cookie, sqlite3 *db){
+int Authenticate(char* username, char* pass, struct login_cookie login_cookie, sqlite3 *db){
     sqlite3_stmt *res;
     if(login_cookie.auth_token != NULL){
         char *sql = "SELECT UserId FROM Token WHERE C1 = ?1 OR C2 = ?2";
